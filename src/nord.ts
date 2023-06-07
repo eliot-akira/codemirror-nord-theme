@@ -1,6 +1,7 @@
 import { EditorView } from '@codemirror/view';
 import { Extension } from '@codemirror/state';
-import { HighlightStyle, tags as t } from '@codemirror/highlight';
+import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
+import { tags as t } from '@lezer/highlight';
 
 const highlightBackground = '#2c313a',
   selection = '#3E4451';
@@ -138,4 +139,4 @@ export const nordHighlightStyle = HighlightStyle.define([
 
 /// Extension to enable the One Dark theme (both the editor theme and
 /// the highlight style).
-export const nord: Extension = [nordTheme, nordHighlightStyle];
+export const nord: Extension = [nordTheme, syntaxHighlighting(nordHighlightStyle)];
